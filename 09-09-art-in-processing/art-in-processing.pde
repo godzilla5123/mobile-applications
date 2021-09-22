@@ -18,6 +18,18 @@ void drawFeatures()
   //sun
   fill(254, 217, 7);
   ellipse(75, 75, 100, 100);
+
+  //umbrella shaft
+  beginShape(TRIANGLES);
+  fill(136, 153, 152);
+  vertex(380,350);
+  vertex(400,350);
+  vertex(390,200);
+  endShape();
+  //umbrella
+  fill(245, 144, 61);
+  arc(390, 230, 75, 75, PI, TWO_PI, PIE);
+  
   //island
   fill(235, 216, 49);
   arc(500, 400, 320, 320, PI, TWO_PI, PIE);
