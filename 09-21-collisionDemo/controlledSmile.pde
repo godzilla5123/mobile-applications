@@ -1,3 +1,4 @@
+boolean hit = false;
 float smileySize = .6; 
 int smileyX = 300;
 int smileySpeedX = 10;
@@ -11,9 +12,9 @@ boolean circleOver = false;
 
 void setup() {
   size(1000, 1000);
-  circleColor = color(255,256,0);
+  circleColor = color(255, 256, 0);
   circleHighlight = color(204);
-  baseColor = color(0,0,256);
+  baseColor = color(0, 0, 256);
   currentColor = baseColor;
   ellipseMode(CENTER);
 }
@@ -34,18 +35,12 @@ void keyPressed() {
 void draw() {
   update(mouseX, mouseY);
   background(currentColor);
-  
   if (circleOver) {
     fill(circleHighlight);
   } else {
     fill(circleColor);
   }
-  stroke(0);
-  ellipse(smileyX, smileyY, smileySize*300, smileySize*300);
-  fill(0, 0, 0);
-  ellipse(smileyX - (smileySize * 50), smileyY - (smileySize * 75), smileySize * 50, smileySize * 50);
-  ellipse(smileyX + (smileySize * 50), smileyY - (smileySize * 75), smileySize * 50, smileySize * 50);
-  arc(smileyX, smileyY, smileySize * 200, smileySize * 200, radians(0), radians(180));
+  smile();
 }
 
 void update(int x, int y) {
@@ -58,12 +53,17 @@ void update(int x, int y) {
 
 void mousePressed() {
   if (circleOver) {
+    hit = true;
     currentColor = circleColor;
     background(currentColor);
+    for (int colorRun = 01; colorRun <= 252; colorRun += 5) {
+      smile();
+      print("Whoop ");
+    }
     print("Hit");
-    delay(300);
+    delay(1500);
+    hit = false;
     currentColor = baseColor;
-    
   }
 }
 
@@ -74,5 +74,27 @@ boolean overCircle(int x, int y, int diameter) {
     return true;
   } else {
     return false;
+  }
+}
+
+void smile() {
+
+  stroke(0);
+  if (hit = true) {
+    //fill(int(random(0, 256)), int(random(0, 256)), int(random(0, 256)));
+    fill(256,0,0);
+    ellipse(smileyX, smileyY, smileySize*300, smileySize*300);
+    fill(0, 0, 0);
+    ellipse(smileyX - (smileySize * 50), smileyY - (smileySize * 75), smileySize * 50, smileySize * 50);
+    ellipse(smileyX + (smileySize * 50), smileyY - (smileySize * 75), smileySize * 50, smileySize * 50);
+    arc(smileyX, smileyY, smileySize * 200, smileySize * 200, radians(0), radians(180));
+  } else
+  {
+    fill(256,256,0);
+    ellipse(smileyX, smileyY, smileySize*300, smileySize*300);
+    fill(0, 0, 0);
+    ellipse(smileyX - (smileySize * 50), smileyY - (smileySize * 75), smileySize * 50, smileySize * 50);
+    ellipse(smileyX + (smileySize * 50), smileyY - (smileySize * 75), smileySize * 50, smileySize * 50);
+    arc(smileyX, smileyY, smileySize * 200, smileySize * 200, radians(0), radians(180));
   }
 }
