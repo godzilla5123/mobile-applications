@@ -1,7 +1,7 @@
-//boolean rectOver1 = false;
-//boolean rectOver2 = false;
-//boolean rectOver3 = false;
-//boolean rectOver4 = false;
+boolean rectOver1 = false;
+boolean rectOver2 = false;
+boolean rectOver3 = false;
+boolean rectOver4 = false;
 
 
 void setup()
@@ -15,41 +15,41 @@ void draw()
   //update(mouseX, mouseY);
   PImage img;
   img = loadImage("360_F_410153573_I9g69gVFmPd2iKXIwsasXAA0AGplNdRV.jpg");
-  image(img, 80, 130);
+  image(img, 20, 130);
 
 
 
   // buttons
   fill(200, 200, 200);
-  rect( 270, 400, 190, 100);
+  rect( 210, 400, 190, 100);
 
   fill(200, 200, 200);
-  rect( 130, 250, 100, 190);
+  rect( 80, 250, 100, 190);
 
   fill(200, 200, 200);
-  rect( 270, 180, 190, 100);
+  rect( 220, 180, 190, 100);
 
   fill(200, 200, 200);
-  rect( 520, 250, 100, 190);
+  rect( 470, 250, 100, 190);
 }
 
 void update(int x, int y) {
-  if ( overRect(270, 400, 190, 100) ) {
+  if ( overRect(210, 400, 190, 100) ) {
     rectOver1 = true;
   } else {
     rectOver1 = false;
   }
-  if ( overRect(130, 250, 100, 190) ) {
+  if ( overRect(80, 250, 100, 190) ) {
     rectOver2 = true;
   } else {
     rectOver2 = false;
   }
-  if ( overRect(270, 180, 190, 100) ) {
+  if ( overRect(220, 180, 190, 100) ) {
     rectOver3 = true;
   } else {
     rectOver3 = false;
   }
-  if ( overRect(520, 250, 100, 190) ) {
+  if ( overRect(470, 250, 100, 190) ) {
     rectOver4 = true;
   } else {
     rectOver4 = false;
