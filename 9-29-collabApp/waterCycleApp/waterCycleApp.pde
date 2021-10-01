@@ -1,3 +1,5 @@
+boolean debug = false;
+
 boolean rectOver1 = false;
 boolean rectOver2 = false;
 boolean rectOver3 = false;
@@ -14,42 +16,28 @@ void draw()
 {
   //update(mouseX, mouseY);
   PImage img;
-  img = loadImage("360_F_410153573_I9g69gVFmPd2iKXIwsasXAA0AGplNdRV.jpg");
+  img = loadImage("waterCycle.jpg");
   image(img, 20, 130);
-
-
-
-  // buttons
-  fill(200, 200, 200);
-  rect( 210, 400, 190, 100);
-
-  fill(200, 200, 200);
-  rect( 80, 250, 100, 190);
-
-  fill(200, 200, 200);
-  rect( 220, 180, 190, 100);
-
-  fill(200, 200, 200);
-  rect( 470, 250, 100, 190);
+  debugButton();
 }
 
 void update(int x, int y) {
-  if ( overRect(210, 400, 190, 100) ) {
+  if ( overRect(180, 320, 154, 76) ) {
     rectOver1 = true;
   } else {
     rectOver1 = false;
   }
-  if ( overRect(80, 250, 100, 190) ) {
+  if ( overRect( 70, 200, 76, 154) ) {
     rectOver2 = true;
   } else {
     rectOver2 = false;
   }
-  if ( overRect(220, 180, 190, 100) ) {
+  if ( overRect(180, 160, 154, 76) ) {
     rectOver3 = true;
   } else {
     rectOver3 = false;
   }
-  if ( overRect(470, 250, 100, 190) ) {
+  if ( overRect(350, 200, 76, 1540) ) {
     rectOver4 = true;
   } else {
     rectOver4 = false;
@@ -74,5 +62,24 @@ boolean overRect(int x, int y, int width, int height) {
     return true;
   } else {
     return false;
+  }
+}
+
+void debugButton() {
+  if (debug == true) {
+    //  buttons
+    fill(200, 200, 200);
+    rect( 180, 320, 154, 76);
+
+    fill(200, 200, 200);
+    rect( 70, 200, 76, 154);
+
+    fill(200, 200, 200);
+    rect( 180, 160, 154, 76);
+
+    fill(200, 200, 200);
+    rect( 350, 200, 76, 154);
+  } else {
+    
   }
 }
