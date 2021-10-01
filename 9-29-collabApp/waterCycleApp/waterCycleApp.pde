@@ -4,7 +4,7 @@ boolean rectOver1 = false;
 boolean rectOver2 = false;
 boolean rectOver3 = false;
 boolean rectOver4 = false;
-
+String sysMessage = "Click on the button to update me";
 
 void setup()
 {
@@ -18,52 +18,35 @@ void draw()
   PImage img;
   img = loadImage("waterCycle.jpg");
   image(img, 20, 130);
+
+
   debugButton();
-}
-
-void update(int x, int y) {
-  if ( overRect(180, 320, 154, 76) ) {
-    rectOver1 = true;
-  } else {
-    rectOver1 = false;
-  }
-  if ( overRect( 70, 200, 76, 154) ) {
-    rectOver2 = true;
-  } else {
-    rectOver2 = false;
-  }
-  if ( overRect(180, 160, 154, 76) ) {
-    rectOver3 = true;
-  } else {
-    rectOver3 = false;
-  }
-  if ( overRect(350, 200, 76, 1540) ) {
-    rectOver4 = true;
-  } else {
-    rectOver4 = false;
+  fill(0, 0, 0);
+  if (mousePressed) {
+    if (mouseX >= 180 && mouseX <= 180+154 && mouseY >= 320 && mouseY <= 320+76) {
+      print(1);
+      //sysMessage = "Step 1";
+      text("Step 1", 220, 390);
+    } else if (mouseX >= 70 && mouseX <= 70+76 && 
+      mouseY >= 200 && mouseY <= 200+154) {
+      print(2);
+      sysMessage = "Step 2";
+      text(sysMessage, 220, 390);
+    } else if (mouseX >= 180 && mouseX <= 180+154 && mouseY >= 160 && mouseY <= 160+76) {
+      print(3);
+      sysMessage = "Step 3";
+      text(sysMessage, 220, 390);
+    } else if (mouseX >= 350 && mouseX <= 350+76 && mouseY >= 200 && mouseY <= 200+154) {
+      print(4);
+      sysMessage = "Step 4";
+      text(sysMessage, 220, 390);
+    }
   }
 }
 
-void mousePressed() {
-  if (rectOver1) {
-    print(1);
-  } else if (rectOver2) {
-    print(2);
-  } else if (rectOver3) {
-    print(3);
-  } else if (rectOver4) {
-    print(4);
-  }
-}
 
-boolean overRect(int x, int y, int width, int height) {
-  if (mouseX >= x && mouseX <= x+width && 
-    mouseY >= y && mouseY <= y+height) {
-    return true;
-  } else {
-    return false;
-  }
-}
+
+
 
 void debugButton() {
   if (debug == true) {
@@ -80,6 +63,5 @@ void debugButton() {
     fill(200, 200, 200);
     rect( 350, 200, 76, 154);
   } else {
-    
   }
 }
