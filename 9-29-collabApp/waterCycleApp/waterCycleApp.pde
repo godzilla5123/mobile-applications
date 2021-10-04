@@ -76,15 +76,39 @@ void ScreenNav() {
     }
   } else if (screenNumber == 2) {
     //step 1
-    backButton();
+    textAlign(LEFT, CENTER);
+    textSize(52);
+    fill(0);
+    text("Collection",150,150);
+    textSize(24);
+     text("Collection is when water is collected into a\n large body of water.",15,220);
+  backButton();
   } else if (screenNumber == 3) {
     //step 2
+      textAlign(LEFT, CENTER);
+    textSize(52);
+    fill(0);
+    text("Evaporation",150,150);
+    textSize(24);
+     text("Evaporation is when water turns into\n vapor and goes up in the sky.",15,220);
     backButton();
   } else if (screenNumber == 4) {
     //step 3
+      textAlign(LEFT, CENTER);
+    textSize(52);
+    fill(0);
+    text("Condesation",150,150);
+    textSize(24);
+     text("Condensation is when clouds form \nfrom the vapor.",15,220);
     backButton();
   } else if (screenNumber == 5) {
     //step 4
+      textAlign(LEFT, CENTER);
+    textSize(52);
+    fill(0);
+    text("Precipitation",150,150);
+    textSize(24);
+     text("it rain :-)",15,220);
     backButton();
   }
 }
