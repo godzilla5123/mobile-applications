@@ -95,6 +95,8 @@ void ScreenNav() {
 void backButton() {
   fill(90, 90, 90);
   rect(155, 520, 204, 76);
+  fill(255);
+  text("Back",237,558);
   if (mousePressed && (mouseX >= 155 && mouseX <= 155+204 && mouseY >= 520 && mouseY <= 520+76)) {
     print("Returning back");
     screenNumber = 1;
