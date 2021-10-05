@@ -17,13 +17,11 @@ void setup()
 
 void draw()
 {
-  background(255);
+  background(150,150,255);
 
   debugButton();
   ScreenNav();
 }
-
-
 
 
 
@@ -76,39 +74,19 @@ void ScreenNav() {
     }
   } else if (screenNumber == 2) {
     //step 1
-    textAlign(LEFT, CENTER);
-    textSize(52);
-    fill(0);
-    text("Collection",150,150);
-    textSize(24);
-     text("Collection is when water is collected into a\n large body of water.",15,220);
-  backButton();
+    textInfo("Collection", "Collection is when water is collected into a\n large body of water. The water can\n come from rivers, water falls, etc.");
+    backButton();
   } else if (screenNumber == 3) {
     //step 2
-      textAlign(LEFT, CENTER);
-    textSize(52);
-    fill(0);
-    text("Evaporation",150,150);
-    textSize(24);
-     text("Evaporation is when water turns into\n vapor and goes up in the sky.",15,220);
+    textInfo("Evaporation", "Evaporation is when water is heated \n up by the sun and as a result \nturns into vapor and goes up in the sky.");
     backButton();
   } else if (screenNumber == 4) {
     //step 3
-      textAlign(LEFT, CENTER);
-    textSize(52);
-    fill(0);
-    text("Condesation",150,150);
-    textSize(24);
-     text("Condensation is when clouds form \nfrom the vapor.",15,220);
+    textInfo("Condesation", "Condensation is when clouds form \nfrom the vapor created in Evaporation.");
     backButton();
   } else if (screenNumber == 5) {
     //step 4
-      textAlign(LEFT, CENTER);
-    textSize(52);
-    fill(0);
-    text("Precipitation",150,150);
-    textSize(24);
-     text("it rain :-)",15,220);
+    textInfo("Precipitation", "After all the water is collected, it rains:-)");
     backButton();
   }
 }
@@ -121,4 +99,13 @@ void backButton() {
     print("Returning back");
     screenNumber = 1;
   }
+}
+
+void textInfo(String title, String desc) {
+  textAlign(LEFT, CENTER);
+  textSize(52);
+  fill(0);
+  text(title, 150, 150);
+  textSize(24);
+  text(desc, 15, 220);
 }
