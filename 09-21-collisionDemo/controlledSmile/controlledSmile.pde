@@ -1,4 +1,4 @@
-boolean hit = false;
+  boolean hit = false;
 float smileySize = .6; 
 int smileyX = 300;
 int smileySpeedX = 10;
