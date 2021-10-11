@@ -8,7 +8,7 @@
  */
 
 Boolean moleHit = false;
-Boolean gameStarted = false; //<>//
+Boolean gameStarted = false;
 int molePosition = 5;
 int score = 0;
 
@@ -19,12 +19,33 @@ void setup() {
 
 void draw() {
   mainNav();
+  homeScreen();
 }
 
 void mainNav() {
-  if (gameStarted == false) { //<>//
-    fill(86, 147, 252);
+  if (gameStarted == false) {
+    background(86, 147, 252);
   } else {
-    fill (205, 117, 240);
+    background (205, 117, 240);
   }
+}
+
+void homeScreen() {
+  fill(133, 166, 222);
+  fill(0);
+  stroke(0);
+  textSize(50);
+  text("Whack Me",width/4,70);
+  button((width/2), (height*.65), 150, color(255,0,0), "Play", false);
+}
+
+
+
+void button(float buttonX, float buttonY, int size, color colr, String buttonText, Boolean molePresent) {
+ fill(colr);
+  circle(buttonX,buttonY, size);
+ fill(0);
+ text(buttonText, buttonX-45,buttonY+10);
+ 
+  
 }

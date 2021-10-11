@@ -15,17 +15,18 @@
  
  void setup() {
  gameStarted = false;
+ fill(86, 147, 252);
  }
  
  void draw() {
-  
+  mainNav();
  }
  
  void mainNav() {
- if (gameStarted = false){
+ //if (gameStarted = false){
    fill(86, 147, 252);
    
- } else {
+ //} else {
    
- }
+ //}
  }
