@@ -14,7 +14,7 @@ Boolean moleHit = false;
 Boolean gameStarted = false;
 int molePosition = 5;
 int score = 0;
-float centerHoleX = (240);
+float centerHoleX = (230);
 float centerHoleY = (450);
 
 void setup() {
@@ -89,7 +89,7 @@ void button(float buttonX, float buttonY, int size, color colr, String buttonTex
 void gameRuntime() {
   for (int i = 0; i < 9; i = i+1) {
     button(points.get(i)[0], points.get(i)[1], 100, color(200, 72, 128), "", true);
-      //print("The point" + i + " is located at:"); // debugging 
+      print("The point" + i + " is located at:"); // debugging 
       println(points.get(i)[0]);
       println(points.get(i)[1]);
   }
