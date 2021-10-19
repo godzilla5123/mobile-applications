@@ -107,9 +107,9 @@ void button(float buttonX, float buttonY, int size, color colr, String buttonTex
 void gameRuntime() {
   for (int i = 0; i < holePoints.size(); i++) {
     button(holePoints.get(i).pointX, holePoints.get(i).pointY, 100, color(200, 72, 128), "", holePoints.get(i).containsMole);
-    print("The point" + i + " is located at:"); // debugging 
     //debugging 
     //println("The point " + (i+1) + " is located at (" + depPoints.get(i)[0] + "," + depPoints.get(i)[0] + ") under the old system." );
     //println("The point " + (i+1) + " is located at (" + holePoints.get(i).pointX + "," + holePoints.get(i).pointY + ") under the new system.");
-     }
+  }
+  print(random(0,9));
 }
