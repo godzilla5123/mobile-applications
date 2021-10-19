@@ -7,7 +7,15 @@
  
  */
 
-ArrayList<float[]> points;
+class Points
+{
+  public float pointX;
+  public float pointY;
+  public Boolean containsMole;
+}
+
+ArrayList<Points> holePoints;
+ArrayList<float[]> depPoints; // to be deprecated 
 
 PImage mole;
 Boolean moleHit = false;
@@ -20,18 +28,28 @@ float centerHoleY = (450);
 void setup() {
   gameStarted = false;
   mole = loadImage("mole.png");
+  /* 
+   to-do: readjust
+   */
+  depPoints = new ArrayList<float[]>();
+  depPoints.add(new float[]{centerHoleX, centerHoleY});
+  depPoints.add(new float[]{centerHoleX, centerHoleY-150});
+  depPoints.add(new float[]{centerHoleX, centerHoleY+150});
+  depPoints.add(new float[]{centerHoleX+150, centerHoleY});
+  depPoints.add(new float[]{centerHoleX+150, centerHoleY-150});
+  depPoints.add(new float[]{centerHoleX+150, centerHoleY+150});
+  depPoints.add(new float[]{centerHoleX-150, centerHoleY});
+  depPoints.add(new float[]{centerHoleX-150, centerHoleY-150});
+  depPoints.add(new float[]{centerHoleX-150, centerHoleY+150});
+  // begin better code
 
-  points = new ArrayList<float[]>();
-  points.add(new float[]{centerHoleX, centerHoleY});
-  points.add(new float[]{centerHoleX, centerHoleY-150});
-  points.add(new float[]{centerHoleX, centerHoleY+150});
-  points.add(new float[]{centerHoleX+150, centerHoleY});
-  points.add(new float[]{centerHoleX+150, centerHoleY-150});
-  points.add(new float[]{centerHoleX+150, centerHoleY+150});
-  points.add(new float[]{centerHoleX-150, centerHoleY});
-  points.add(new float[]{centerHoleX-150, centerHoleY-150});
-  points.add(new float[]{centerHoleX-150, centerHoleY+150});
-
+  holePoints = new ArrayList<Points>();
+  for (int holes = 0; holes <= 8; holes++) {
+    holePoints.add(new Points());
+    holePoints.get(holes).pointX = depPoints.get(holes)[0];
+    holePoints.get(holes).pointY = depPoints.get(holes)[1];
+    holePoints.get(holes).containsMole = false;
+  }
 }
 
 void draw() {
@@ -87,10 +105,11 @@ void button(float buttonX, float buttonY, int size, color colr, String buttonTex
 }
 
 void gameRuntime() {
-  for (int i = 0; i < 9; i = i+1) {
-    button(points.get(i)[0], points.get(i)[1], 100, color(200, 72, 128), "", true);
-      print("The point" + i + " is located at:"); // debugging 
-      println(points.get(i)[0]);
-      println(points.get(i)[1]);
-  }
+  for (int i = 0; i < holePoints.size(); i++) {
+    button(holePoints.get(i).pointX, holePoints.get(i).pointY, 100, color(200, 72, 128), "", holePoints.get(i).containsMole);
+    print("The point" + i + " is located at:"); // debugging 
+    //debugging 
+    //println("The point " + (i+1) + " is located at (" + depPoints.get(i)[0] + "," + depPoints.get(i)[0] + ") under the old system." );
+    //println("The point " + (i+1) + " is located at (" + holePoints.get(i).pointX + "," + holePoints.get(i).pointY + ") under the new system.");
+     }
 }
