@@ -24,10 +24,14 @@ int molePosition = 5;
 int score = 0;
 float centerHoleX = (230);
 float centerHoleY = (450);
+int timeOfNextChange;
+int currentMolePos;
 
 void setup() {
   gameStarted = false;
   mole = loadImage("mole.png");
+  timeOfNextChange = 5000;
+
   /* 
    to-do: readjust
    */
@@ -85,6 +89,7 @@ void homeScreen() {
 
 
 
+
 void button(float buttonX, float buttonY, int size, color colr, String buttonText, Boolean molePresent) {
   fill(colr);
   circle(buttonX, buttonY, size);
@@ -99,17 +104,50 @@ void button(float buttonX, float buttonY, int size, color colr, String buttonTex
   //float disY = buttonY - mouseY;
   //if (mousePressed) {
   //  if (sqrt(sq(disX) + sq(disY)) < size/2) {
-  //    print("click :DDDDDD");
+  //    if () {
+  //    }
   //  }
   //}
 }
 
 void gameRuntime() {
+
   for (int i = 0; i < holePoints.size(); i++) {
     button(holePoints.get(i).pointX, holePoints.get(i).pointY, 100, color(200, 72, 128), "", holePoints.get(i).containsMole);
     //debugging 
     //println("The point " + (i+1) + " is located at (" + depPoints.get(i)[0] + "," + depPoints.get(i)[0] + ") under the old system." );
     //println("The point " + (i+1) + " is located at (" + holePoints.get(i).pointX + "," + holePoints.get(i).pointY + ") under the new system.");
   }
-  print(random(0,9));
+  if (millis() >= timeOfNextChange) {
+    moleMove(false);
+  }
+}
+
+void mousePressed()
+{
+  if (gameStarted == true) {
+    for (int i = 0; i < holePoints.size(); i++) {
+      if (sqrt(sq((holePoints.get(i).pointX)-mouseX) + sq((holePoints.get(i).pointY)-mouseY)) < 100/2) {
+        if (holePoints.get(i).containsMole) {
+          print("squash");
+          moleMove(true);
+        } else {
+          print("you suck lol");
+        }
+      }
+    }
+  }
+}
+
+
+void moleMove(Boolean squash) {
+  holePoints.get(currentMolePos).containsMole = false;
+  currentMolePos = (round(random(0, 8)));
+    // print(currentMolePos); // debug
+  holePoints.get(currentMolePos).containsMole = true;
+  if (squash) {
+    score++;
+    print(score);
+  }
+  timeOfNextChange = millis() + 3000;
 }
